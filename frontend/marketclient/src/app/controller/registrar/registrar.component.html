@@ -1,0 +1,46 @@
+<div id="login">
+
+  <div class="container">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div id="login-box" class="col-md-12">
+          <form id="login-form" class="form">
+            <h3 class="text-center text-info">Formulario de registro</h3>
+            <div class="form-group">
+              <label for="user" class="control-label">Usuario</label>
+              <input type="text" class="form-control" [(ngModel)]="cliente.usuario" name="user_id"
+                placeholder="Usuario">
+            </div>
+
+            <div class="form-group">
+              <label for="pass" class="control-label">Contraseña</label>
+              <input type="text" class="form-control" [(ngModel)]="cliente.password" name="pass"
+                placeholder="Contraseña">
+            </div>
+
+            <div class="form-group">
+              <label for="nombre" class="control-label">Nombre</label>
+              <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre"
+                placeholder="Nombre y apellidos">
+            </div>
+
+            <div class="form-group">
+              <label for="dir" class="control-label">Dirección</label>
+              <input type="text" class="form-control" [(ngModel)]="cliente.direccion" name="dir"
+                placeholder="Dirección completa">
+            </div>
+            <div class="form-group">
+              <label for="email" class="control-label">Email</label>
+              <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email"
+                placeholder="Correo electrónico">
+            </div>
+            <div class="form-group">
+              <button type="submit" (click)="registrar()" class="btn btn-primary">Registrar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
