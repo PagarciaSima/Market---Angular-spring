@@ -1,0 +1,65 @@
+<div class="container">
+  <br><br>
+    <div class="form-control">
+        <label class="col-sm-2 h4" >Seleccione categoría: </label>
+        <select id="sel1" class="form-select form-control-lg" [(ngModel)]="idCategoriaSel" (change)="productosCategoria()">
+          <option *ngFor="let categoria of categorias" value="{{categoria.idCategoria}}">{{categoria.categoria}}</option>
+        </select>
+    </div>
+    <div>
+      <br><br>
+
+      <!-- Lista productos -->
+      <h1>Listado de productos</h1>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio unitario</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Unidades</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+              <td>{{producto.nombre}}</td>
+              <td>{{producto.precioUnitario}}</td>
+              <td>{{producto.stock}}</td>
+              <td><input type="text" class="form-control" [(ngModel)]="producto.unidades" ></td>
+              <td>
+                <input type="button" class="form-control" value="Agregar cesta" (click)="agregarProductoCesta(producto)">
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      <br><br>
+
+      <!-- Cesta productos -->
+      <h1>Cesta de productos</h1>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+             <th scope="col">Producto</th>
+            <th scope="col">Unidades</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of cesta; index as i">
+              <td>{{c.producto.nombre}}</td>
+              <td>{{c.unidades}}</td>
+              <td>
+                <input type="button" class="form-control" value="Quitar cesta" (click)="eliminarProductoCesta(i)">
+              </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div class="form-group">
+        <br>
+        <input type="button"   class="btn btn-info btn-md" value="Procesar pedido"><br>
+      </div>
+    </div>
+</div>
+

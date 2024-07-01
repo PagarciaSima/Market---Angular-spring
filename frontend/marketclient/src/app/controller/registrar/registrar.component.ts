@@ -6,23 +6,22 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
-  styleUrls: ['./registrar.component.css']
+  styleUrls: ['./registrar.component.css'],
 })
 export class RegistrarComponent implements OnInit {
-  cliente:Cliente=new Cliente();
-  constructor(private registrarService:RegistrarService,
-    private router:Router) { }
+  cliente: Cliente = new Cliente();
 
-  ngOnInit(): void {
-  }
+  constructor(
+    private registrarService: RegistrarService,
+    private router: Router
+  ) {}
 
-  registrar(){
+  ngOnInit(): void {}
 
-      this.registrarService.registrar(this.cliente).subscribe({
-          next:data=>this.router.navigate(["/login"]),
-          error:err=>alert("El usuario ya existe")
-        }
-      );
-
+  registrar() {
+    this.registrarService.registrar(this.cliente).subscribe({
+      next: (data) => this.router.navigate(['/login']),
+      error: (err) => alert('El usuario ya existe'),
+    });
   }
 }
