@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Pedidos de {{ usuario }}</h1>
+  <br><br>
+  <table class="table" *ngFor="let p of pedidos">
+    <thead class="table-info">
+      <tr>
+        <th scope="col">Fecha: {{p.fecha}} - Estado: {{p.estado}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="col">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Unidades</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let el of p.elementosPedido">
+                <td>{{el.producto.nombre}}</td>
+                <td>{{el.unidades}}</td>
+                <td>{{el.unidades * el.producto.precioUnitario}}</td>
+
+              </tr>
+            </tbody>
+          </table>
+
+
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+

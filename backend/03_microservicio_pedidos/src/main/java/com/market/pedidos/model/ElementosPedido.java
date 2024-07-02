@@ -20,7 +20,7 @@ public class ElementosPedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idElementosPedido;
+	private int idElementoPedido;
 	private int idPedidoFk;
 	private int unidades;
 	@ManyToOne()
