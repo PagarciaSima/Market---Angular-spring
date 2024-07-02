@@ -33,8 +33,5 @@ Esta es una sencilla aplicación full stack comprendida por:
 ![new](img/procesarPedido.png)
 
 ### Consultar Pedido
-![new](img/consultarPedido.png)
+![new](img/consultaPedidos.png)
 
-
-## Demo
-[Link to video Demo](https://www.youtube.com/watch?v=gm6MtrvOHqY)
