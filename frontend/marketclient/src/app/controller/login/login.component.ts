@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../../service/login.service';
 import { Cliente } from 'src/app/model/Cliente';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   password: string;
   client: Cliente;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private menuComponent: MenuComponent) {
 
   }
 
@@ -22,6 +23,8 @@ export class LoginComponent {
       this.client = data;
       // Usuario logado o válido
       if(this.client != null) {
+        this.menuComponent.cliente = this.client;
+        this.menuComponent.enabled = true;
         alert("Usuario autenticado");
       } else {
         alert("Usuario no autenticado");

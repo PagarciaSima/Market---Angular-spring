@@ -3,6 +3,7 @@ import { Categoria } from 'src/app/model/Categoria';
 import { Producto } from 'src/app/model/Producto';
 import { ProcesarPedidoService } from '../../service/procesar-pedido.service';
 import { CestaItem } from 'src/app/model/CestaItem';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-procesar-pedido',
@@ -15,7 +16,7 @@ export class ProcesarPedidoComponent implements OnInit {
   idCategoriaSel: number;
   cesta: CestaItem[];
 
-  constructor(private procesarPedidoService: ProcesarPedidoService) {}
+  constructor(private procesarPedidoService: ProcesarPedidoService, private menuComponent: MenuComponent) {}
 
   ngOnInit(): void {
     // Carga lista categorías
@@ -95,9 +96,11 @@ export class ProcesarPedidoComponent implements OnInit {
    */
   procesarPedido() {
     this.procesarPedidoService
-      .enviarPedido(this.cesta, 'user1')
-      .subscribe((data) => {
-        alert('pedido procesado');
+      .enviarPedido(this.cesta, this.menuComponent.cliente.usuario)
+      .subscribe({
+        next: r => alert('pedido procesado'),
+        error: e => alert('Ha ocurrido un error al procesar el pedido: ' + e)
+
       });
   }
 }

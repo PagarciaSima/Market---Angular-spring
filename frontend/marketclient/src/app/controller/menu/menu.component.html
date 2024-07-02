@@ -1,0 +1,17 @@
+<div style="text-align:center;font-size:xx-large" >
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/login">Acceso</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="enabled" routerLink="/consultar">Consultar Pedidos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="enabled" routerLink="/procesar">Procesar Pedido</a>
+    </li>
+
+  </ul>
+</div>
+<div>
+   <router-outlet></router-outlet>
+</div>
