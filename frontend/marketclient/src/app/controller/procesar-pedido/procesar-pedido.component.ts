@@ -88,4 +88,16 @@ export class ProcesarPedidoComponent implements OnInit {
     );
     producto.stock = Number(producto.stock) + Number(item.unidades);
   }
+
+  /**
+   * Procesa el pedido actual enviando la información de la cesta al servicio correspondiente.
+   * Una vez enviado, muestra una alerta confirmando que el pedido ha sido procesado.
+   */
+  procesarPedido() {
+    this.procesarPedidoService
+      .enviarPedido(this.cesta, 'user1')
+      .subscribe((data) => {
+        alert('pedido procesado');
+      });
+  }
 }

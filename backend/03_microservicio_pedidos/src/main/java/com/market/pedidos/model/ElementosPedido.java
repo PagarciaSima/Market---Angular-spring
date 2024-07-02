@@ -21,7 +21,7 @@ public class ElementosPedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idElementosPedido;
-	private int idPedido;
+	private int idPedidoFk;
 	private int unidades;
 	@ManyToOne()
 	@JoinColumn(name = "idProductoFk", referencedColumnName = "idProducto")

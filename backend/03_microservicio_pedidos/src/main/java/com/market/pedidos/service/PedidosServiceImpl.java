@@ -18,8 +18,10 @@ public class PedidosServiceImpl implements PedidosService{
 	
 	String urlProductos = "http://localhost:8082/";
 	
+//	@Autowired
+//	RestTemplate restTemplate;
 	@Autowired
-	RestTemplate restTemplate;
+	RestTemplate restClient;
 	@Autowired
 	PedidosRepository pedidosRepository;
 	@Autowired
@@ -29,7 +31,33 @@ public class PedidosServiceImpl implements PedidosService{
 	public List<Pedido> pedidosUsuario(String usuario) {
 		return pedidosRepository.findByUsuario(usuario);
 	}
-
+	
+	// Con Rest template
+//	@Override
+//	public Pedido guardarPedido(List<ElementosPedido> elementosPedido, String usuario) {
+//		try {	
+//			// Crear objeto pedido y guardarlo
+//			Pedido pedido = new Pedido(0, usuario, new Date(), "pendiente", null);
+//			Pedido pedidoGuardado = pedidosRepository.save(pedido);
+//			
+//			// Guardar elementos pedido (items)
+//			elementosPedido.forEach(e -> {
+//				e.setIdPedidoFk(pedidoGuardado.getIdPedido());
+//				elementosPedidosRepository.save(e);
+//				// Actualizar stock producto llamando al microservicio de productos
+//				UriComponentsBuilder builder = 
+//				UriComponentsBuilder.fromHttpUrl(urlProductos + "producto")
+//					.queryParam("idProducto", e.getProducto().getIdProducto())
+//					.queryParam("unidades", e.getUnidades());
+//				restTemplate.put(builder.toUriString(), null);
+//			});
+//			return pedido;
+//		} catch (Exception e) {
+//			return null;
+//		}
+//		
+//	}
+	
 	@Override
 	public Pedido guardarPedido(List<ElementosPedido> elementosPedido, String usuario) {
 		try {	
@@ -39,11 +67,11 @@ public class PedidosServiceImpl implements PedidosService{
 			
 			// Guardar elementos pedido (items)
 			elementosPedido.forEach(e -> {
-				e.setIdPedido(pedidoGuardado.getIdPedido());
+				e.setIdPedidoFk(pedidoGuardado.getIdPedido());
 				elementosPedidosRepository.save(e);
 				// Actualizar stock producto llamando al microservicio de productos
 				UriComponentsBuilder builder = 
-				UriComponentsBuilder.fromHttpUrl(urlProductos + "productos")
+				UriComponentsBuilder.fromHttpUrl(urlProductos + "producto")
 					.queryParam("idProducto", e.getProducto().getIdProducto())
 					.queryParam("unidades", e.getUnidades());
 				restTemplate.put(builder.toUriString(), null);
