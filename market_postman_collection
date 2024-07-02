@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "0413029d-ffba-43bb-b88d-91069342df27",
+		"name": "MARKET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28237765"
+	},
+	"item": [
+		{
+			"name": "Autenticar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/cliente/autenticar?usuario=user1&password=user1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"cliente",
+						"autenticar"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "user1"
+						},
+						{
+							"key": "password",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Categorias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/productos?idCategoria=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"productos"
+					],
+					"query": [
+						{
+							"key": "idCategoria",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/pedidos?usuario=user1",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"pedidos"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"user2\",\r\n    \"password\": \"user2\",\r\n    \"nombre\": \"Usuario 2\",\r\n    \"direccion\": \"C/Usuario 2\",\r\n    \"email\": \"usuario2@nomail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/cliente/registrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"cliente",
+						"registrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar stock",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"user2\",\r\n    \"password\": \"user2\",\r\n    \"nombre\": \"Usuario 2\",\r\n    \"direccion\": \"C/Usuario 2\",\r\n    \"email\": \"usuario2@nomail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/producto?idProducto=1&unidades=19",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"producto"
+					],
+					"query": [
+						{
+							"key": "idProducto",
+							"value": "1"
+						},
+						{
+							"key": "unidades",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
